@@ -4,12 +4,12 @@ import { getFirestore } from "firebase/firestore";
 
 // Standard modular Firebase initialization
 const firebaseConfig = {
-  apiKey: "AIzaSyCvzpsAsV2nJTTJu98PlP2ZK6AXXpPifII",
-  authDomain: "lendflow0718.firebaseapp.com",
-  projectId: "lendflow0718",
-  storageBucket: "lendflow0718.firebasestorage.app",
-  messagingSenderId: "688064700314",
-  appId: "1:688064700314:web:a015b66e3c88762e1a2423"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
 // Initialize Firebase with modular SDK
