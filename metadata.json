@@ -1,0 +1,5 @@
+{
+  "name": "LendFlow Admin",
+  "description": "A secure, internal-use admin dashboard for private money lenders to manage customers, track principal changes, and generate monthly interest reports.",
+  "requestFramePermissions": []
+}
