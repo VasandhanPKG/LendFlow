@@ -76,7 +76,7 @@ const CustomerDetails: React.FC = () => {
     
     const unsubL = onSnapshot(loansRef, (snap) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const loanList = mapDocs(snap as any).map((d) => sanitizeData(d as Record<string, unknown>)) as Loan[];
+      const loanList = mapDocs(snap as any).map((d) => sanitizeData(d as Record<string, unknown>)) as unknown as Loan[];
       setLoans(loanList);
       if (loanList.length > 0 && !selectedLoanId) {
         setSelectedLoanId(loanList[0].id);
@@ -85,12 +85,12 @@ const CustomerDetails: React.FC = () => {
 
     const unsubP = onSnapshot(paymentsRef, (snap) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      setPayments(mapDocs(snap as any).map((d) => sanitizeData(d as Record<string, unknown>)) as Payment[]);
+      setPayments(mapDocs(snap as any).map((d) => sanitizeData(d as Record<string, unknown>)) as unknown as Payment[]);
     });
     
     const unsubLog = onSnapshot(logsRef, (snap) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      setPrincipalLogs(mapDocs(snap as any).map((d) => sanitizeData(d as Record<string, unknown>)) as PrincipalLog[]);
+      setPrincipalLogs(mapDocs(snap as any).map((d) => sanitizeData(d as Record<string, unknown>)) as unknown as PrincipalLog[]);
     });
 
     return () => { unsubC(); unsubL(); unsubP(); unsubLog(); };

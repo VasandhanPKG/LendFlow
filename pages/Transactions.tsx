@@ -36,7 +36,7 @@ const Transactions: React.FC = () => {
     const customersRef = collection(db, 'users', user.uid, 'customers');
     const unsubC = onSnapshot(customersRef, (snap) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      setCustomers(mapDocs(snap as any).map((d) => sanitizeData(d as Record<string, unknown>)) as Customer[]);
+      setCustomers(mapDocs(snap as any).map((d) => sanitizeData(d as Record<string, unknown>)) as unknown as Customer[]);
     });
 
     return () => unsubC();
@@ -54,7 +54,7 @@ const Transactions: React.FC = () => {
 
     const unsubP = onSnapshot(paymentsRef, (snap) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      setPayments(mapDocs(snap as any).map((d) => sanitizeData(d as Record<string, unknown>)) as Payment[]);
+      setPayments(mapDocs(snap as any).map((d) => sanitizeData(d as Record<string, unknown>)) as unknown as Payment[]);
     });
 
     // Fetch principal logs for the selected month/year
@@ -69,7 +69,7 @@ const Transactions: React.FC = () => {
 
     const unsubL = onSnapshot(logsRef, (snap) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      setPrincipalLogs(mapDocs(snap as any).map((d) => sanitizeData(d as Record<string, unknown>)) as PrincipalLog[]);
+      setPrincipalLogs(mapDocs(snap as any).map((d) => sanitizeData(d as Record<string, unknown>)) as unknown as PrincipalLog[]);
     });
 
     return () => {
